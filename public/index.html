@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>HTL Chapter 2 Badge Generator</title>
+  <meta
+    name="description"
+    content="HTL Chapter 2"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="./favicon.ico" />
+  <meta content="yes" name="apple-mobile-web-app-capable" />
+  <meta
+    content="black-translucent"
+    name="apple-mobile-web-app-status-bar-style"
+  />
+  <meta
+    name="description"
+    content="Hack Thea League"
+  />
+  <meta name="author" content="HTL Chapter 2" />
+  <meta property="og:title" content="HTL Chapter 2" />
+  <meta property="og:type" content="website" />
+  <meta
+    property="og:image"
+    content="htl.png"
+  />
+  <meta property="og:url" content="https://hacktheleague.com/" />
+  <meta property="og:site_name" content="Hack The League" />
+  <meta
+    property="og:description"
+    content="Hack The League"
+  />
+  <meta property="keywords" content="HTL, hack-the-league-chapter-2, hack_the_league, HackTheLeague" />
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://hacktheleague.com/" />
+  <meta name="twitter:title" content="Hack The League" />
+  <meta
+    name="twitter:description"
+    content="Hack The League"
+  />
+  <meta
+    name="twitter:image"
+    content="devfest2022.png"
+  />
+  <meta name="twitter:tags" content="HTL, Hack The League, HTL Chapter 2" />
+  <!-- Social Meta -->
+  <link
+    crossorigin="anonymous"
+    href="https://fonts.googleapis.com/icon?family=Google+Sans:400&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+    <div class="header-flex-wrapper">
+        <div class="title">
+          <strong> The League -Chapter 2 </strong> Badge Generator
+        </div>
+        <div>
+          <ul class="list-unstyled  badge-list">
+            <li><a href="https://hack-the-league-chapter-2.devpost.com/" target="_blank" class="border-btn" rel = "noreferrer">Register here</a></li>
+          </ul>
+        </div>
+      </div>
+  </header>
+
+  <div class="main-container">
+    <div class="input-panel">
+      <div class="input">
+        <label>Profile Picture</label>
+        <button class="button" onclick="uploadImage()">Upload Image</button>
+        <input
+          class="profile-input"
+          type="file"
+          accept="image/*"
+          onchange="upload(event)"
+          hidden
+        />
+      </div>
+      <div class="input">
+        <label>Image Shape</label>
+        <div class="select-container">
+          <div
+            class="select"
+            id="original"
+            selected
+            onclick="changeShape('original')"
+          >
+            Original
+          </div>
+          <div class="select" id="square" onclick="changeShape('square')">
+            Square
+          </div>
+          <div class="select" id="circle" onclick="changeShape('circle')">
+            Circle
+          </div>
+        </div>
+      </div>
+	  <div class="input milestone">
+<!-- 		<button class="button m1" onclick="milestone1()">Milestone 1</button>
+		<button class="button m2" onclick="milestone2()">Milestone 2</button>
+		<button class="button m3" onclick="milestone3()">Milestone 3</button>
+		<button class="button m4" onclick="milestone4()">Milestone 4</button> -->
+	  </div>
+	  <div class="credits">
+  <p>
+	<strong>&lt;/&gt;</strong> with &#10084;&#65039; by <a target="_blank" href="https://www.hacktheleague.com/team.html" style="text-decoration:none;">Team Hack The League</a>
+	</p>
+  <p class="social">
+<!--     <a class="social-link github" target="_blank" href="https://github.com/pixan198"><i class="fa fa-github fa-2x"></i></a> -->
+    <a class="social-link linkedin" target="_blank" href="https://www.linkedin.com/company/hack-the-league/mycompany/"><i class="fa fa-linkedin fa-2x"></i></a>
+    <a class="social-link twitter" target="_blank" href="https://twitter.com/HackTheLeague"><i class="fa fa-twitter fa-2x"></i></a>
+    <a class="social-link instagram" target="_blank" href="https://www.instagram.com/hack_the_league/"><i class="fa fa-instagram fa-2x"></i></a>
+  </p>
+	</div>
+    </div>
+	
+    <div class="preview-panel">
+      <canvas></canvas>
+      <div class="download-fab" onclick="download()" id="download">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          fill="#fff"
+        >
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path
+            d="M16.59 9H15V4c0-.55-.45-1-1-1h-4c-.55 0-1 .45-1 1v5H7.41c-.89 0-1.34 1.08-.71 1.71l4.59 4.59c.39.39 1.02.39 1.41 0l4.59-4.59c.63-.63.19-1.71-.7-1.71zM5 19c0 .55.45 1 1 1h12c.55 0 1-.45 1-1s-.45-1-1-1H6c-.55 0-1 .45-1 1z"
+          />
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  </body>
+</html>
